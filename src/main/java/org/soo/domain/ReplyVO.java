@@ -52,7 +52,8 @@ public class ReplyVO {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		 return "ReplyVO [rno=" + rno + ", bno=" + bno + ", replytext=" + replytext + ", replyer=" + replyer + ", regdate="
+	        + regdate + ", updatedate=" + updatedate + "]";
 	}
 	
 	

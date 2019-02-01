@@ -35,7 +35,7 @@ public class UserVO {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		 return "UserVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", upoint=" + upoint + "]";
 	}
 	
 	

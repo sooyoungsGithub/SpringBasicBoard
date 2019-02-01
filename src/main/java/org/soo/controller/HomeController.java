@@ -1,4 +1,4 @@
-package org.soo.board;
+package org.soo.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/sboard/*")
+/*@RequestMapping("/sboard/*")*/
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -34,6 +34,21 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		return "home";
+	}
+	
+	@RequestMapping(value = "/doA", method = RequestMethod.GET)
+	public String doA(Locale locale, Model model) {
+		System.out.println("doA............");
+		return "home";
+	}
+	
+	@RequestMapping(value = "/doB", method = RequestMethod.GET)
+	public String doB(Locale locale, Model model) {
+		
+		System.out.println("doB............");
+		
+		model.addAttribute("result", "DOB RESULT");
 		return "home";
 	}
 	

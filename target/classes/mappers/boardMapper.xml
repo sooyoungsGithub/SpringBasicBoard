@@ -10,11 +10,13 @@
  			values(#{title}, #{content}, #{writer})
  	</insert>
  	
- 	<select id="read" resultType="org.soo.domain.BoardVO">
- 		select bno, title, content, writer, regdate, viewcnt, replycnt
- 			from tbl_board
- 			where bno = #{bno}
- 	</select>
+ 	<insert id="addAttach">
+		insert into tbl_attach(fullName, bno) values (#{fullName}, LAST_INSERT_ID())
+	</insert> 
+	
+	<insert id="replaceAttach">
+		insert into tbl_attach(fullName, bno) values (#{fullName}, #{bno})
+	</insert>
  	
  	<update id = "update">
  		update tbl_board 
@@ -35,6 +37,22 @@
  	<delete id="delete">
  		delete from tbl_board where bno = #{bno}
  	</delete>
+ 	
+ 	<delete id="deleteAttach">
+ 		delete from tbl_attach where bno = #{bno}
+ 	</delete>
+ 	
+ 	<select id="read" resultType="org.soo.domain.BoardVO">
+		select
+		bno, title, content, writer, regdate, viewcnt , replycnt
+		from
+		tbl_board
+		where bno = #{bno}
+	</select>
+	
+	<select id="getAttach" resultType="string">
+		select fullName from tbl_attach where bno = #{bno} order by regdate
+	</select> 
  	
  	<select id="listAll" resultType="org.soo.domain.BoardVO">
  	
